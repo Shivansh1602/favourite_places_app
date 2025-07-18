@@ -1,5 +1,6 @@
 // add button screen to take input elements  from the users , allows a user too input data for the new place
 
+import 'package:favourite_places_app/non_screens_widgets/image_input.dart';
 import 'package:favourite_places_app/providers/user_places.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -62,6 +63,12 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
                   _titleController, //to make sure user input is managed by flutter and can be accessed when needed later
               style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
+
+            const SizedBox(height: 10),
+            
+            ImageInput(),
+
+
             const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: _savedPlaces,
