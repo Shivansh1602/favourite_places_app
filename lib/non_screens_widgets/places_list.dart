@@ -25,6 +25,11 @@ class PlacesList extends StatelessWidget {
       itemCount: places.length,                                                                                      // counts the total item in the list to be rendered for flutter
       itemBuilder: (context, index) => ListTile(
         // build a list based on the index using list tile
+        leading: CircleAvatar(
+          radius: 26,
+          backgroundImage: FileImage(places[index].image),
+        ),
+       
         title: Text(
           places[index].title,                                              //to get the parameter 'title' we used index
           style: Theme.of(context).textTheme.titleMedium!.copyWith(

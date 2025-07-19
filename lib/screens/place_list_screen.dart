@@ -8,9 +8,7 @@
     const PlaceListScreen({super.key});
     @override
     Widget build(BuildContext context, WidgetRef ref) {
-      final userPlaces = ref.watch(
-        userPlacesProvider,
-      ); // user places stores the list provided by provider that user entered
+      final userPlaces = ref.watch( userPlacesProvider); // user places stores the list provided by provider that user entered
       return Scaffold(
         appBar: AppBar(
           title: Text('Your Places'),
@@ -26,7 +24,10 @@
             ),
           ],
         ),
-        body: PlacesList(places: userPlaces),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: PlacesList(places: userPlaces),
+        ),
       );
     }
   }
