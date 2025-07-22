@@ -1,5 +1,6 @@
 // add button screen to take input elements  from the users , allows a user too input data for the new place
 
+import 'package:favourite_places_app/models/place.dart';
 import 'package:favourite_places_app/non_screens_widgets/image_input.dart';
 import 'package:favourite_places_app/non_screens_widgets/location_input.dart';
 import 'package:favourite_places_app/providers/user_places.dart';
@@ -22,10 +23,12 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
 
   File? _selectedImage;
 
+  PlaceLocation? _selectedLocation;
+
   void _savedPlaces() {
     final enteredTitle = _titleController.text;
 
-    if (enteredTitle.isEmpty || _selectedImage == null) {
+    if (enteredTitle.isEmpty || _selectedImage == null||_selectedLocation==null) {
       // is list is empty we show a dialog box
       showDialog(
         context: context,
@@ -45,7 +48,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
     }
     ref
     .read(userPlacesProvider.notifier) 
-    .addPlace(enteredTitle, _selectedImage!);
+    .addPlace(enteredTitle, _selectedImage!,_selectedLocation!);
      // returning the provider if list is not empty
     Navigator.of(context).pop();
   }
@@ -80,7 +83,9 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             ),
            const SizedBox(height: 16),
             
-            LocationInput(),
+            LocationInput(onSelectLocation: (location) {
+              _selectedLocation=location;
+            },),
 
             const SizedBox(height: 16),
             ElevatedButton.icon(

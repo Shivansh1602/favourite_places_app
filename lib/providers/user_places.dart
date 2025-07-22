@@ -12,8 +12,8 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
     
      // const is added so that we do not mutate the list that already exists in the memory by mistake otherwise the code will not run
 
-  void addPlace(String title, File image) {
-    final newPlace = Place(title: title,image: image);
+  void addPlace(String title, File image, PlaceLocation location) {
+    final newPlace = Place(title: title,image: image,location: location);
     state = [newPlace, ...state]; 
 
     //using spreader ... to get the emlements of old list in new and adding the neew place at the beginning of the list
