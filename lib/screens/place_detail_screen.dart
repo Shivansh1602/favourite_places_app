@@ -8,12 +8,12 @@ class PlaceDetailScreen extends StatelessWidget {
   const PlaceDetailScreen({super.key, required this.place});
 
   final Place place;
-  String get locationImage {
+  String get locationImage {  
     // getter to generate the snapsot and  the preveiw of the location using api
 
     final lat = place.location.latitude;
     final lng = place.location.longitude;
-    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng=&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng&key=AIzaSyA7YcZDD-oOc2vxzW6Jd4esE0PPYUPw2yk';
+    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng=&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng&key=AIzaSyC2uLjIwQjaxrMhWR2_yrdyRdweZWkPquA';
   }
 
   @override
